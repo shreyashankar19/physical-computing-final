@@ -6,9 +6,9 @@ This is a template for your final project documentation.  Please replace <conten
 
 *Date:* December 13, 2017
 
-## Project: Theymiscira 
+## Project: Themyscira 
 
-This project is a womens safety wearable device, designed to offer women protection while they are out for a run by themselves. The device works as an armband that mimics an armband one would use to hold a phone or water bottle while out for a run. This device operates in a simple manner, by sending a text message to a pre-registered phone number if a force is detected on the armband. 
+This project is a womens safety wearable device, designed to offer women protection while they are out for a run by themselves. The device works as an armband that mimics an armband one would use to hold a phone or water bottle while out for a run. This device operates in a simple manner, by sending a text message to a pre-registered phone number if a force is detected on the armband. The name Themyscira comes from the origins of Wonder Woman. The island itself was governed under Aphrodite's Law, which stated that "Under penalty of death, no Man may set foot on Themyscira." Under this law, the women of the island prospered as skilled artisans and warriors.
 
 ### Detailed Project Description
 
@@ -79,7 +79,7 @@ For the rest of this device, I wanted it to be as compact as possible so I used 
 ![Top View, USB pack featured](images/IMG_2869.jpg)
 ![Internal Hardware, Photon Wired](images/IMG_2870.jpg)
 ![Armband Demo](images/IMG_2872.jpg)
-![Received Text](IMG_2873.PNG)
+![Received Text](images/IMG_2873.PNG)
 
 ### Evaluation / Reflection
 
