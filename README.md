@@ -79,6 +79,7 @@ For the rest of this device, I wanted it to be as compact as possible so I used 
 ![Top View, USB pack featured](images/IMG_2869.jpg)
 ![Internal Hardware, Photon Wired](images/IMG_2870.jpg)
 ![Armband Demo](images/IMG_2872.jpg)
+![Received Text](IMG_2873.PNG)
 
 ### Evaluation / Reflection
 
