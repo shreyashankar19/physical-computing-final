@@ -12,9 +12,7 @@ This project is a womens safety wearable device, designed to offer women protect
 
 ### Detailed Project Description
 
-< Explain the "what" of your project:   What is it?   What does it do?   Explain the "why" of your project:  What problem is it responding to?  What issue is it engaging?   
-
-This device operates in a simple manner, by sending a text message to a pre-registered phone number if it detects a force over a certain amount. The force sensitive resistor used while creating this device measures force in terms of resistance; a higher resistance equates to a lower amount of force applied. A resistance measurement of 250 Ohms equates to a force measurement of 100 Newtons, or 22 pounds. For the purpose of the demo, the force that was required for the sensor to send a signal was on the lower side - 200 Ohms. If used in the real world, an average 30-year-old man has a crushing grip strength of 80 pounds for his dominant hand. Therefore, the resistance value required to be measured would be much lower (around 100 Ohms). 
+This device operates in a simple manner, by sending a text message to a pre-registered phone number if it detects a force over a certain amount. The force sensitive resistor used while creating this device measures force in terms of resistance; a higher resistance equates to a lower amount of force applied. Baed on values of a 10 KOhm resistor, a resistance measurement of 250 Ohms equates to a force measurement of 100 Newtons, or 22 pounds. For the purpose of the demo, the force that was required for the sensor to send a signal was on the lower side - 200 Ohms. If used in the real world, an average 30-year-old man has a crushing grip strength of 80 pounds for his dominant hand. Therefore, the resistance value required to be measured would be much lower (around 100 Ohms). 
 
 Using this device is simple, a woman simply has to put the armband on before she goes out for a run, and the continue with her regular routine. This device will only act if force is detected. There is no extra effort required on the woman's part, apart from the pre-registration of her "emergency" number. 
 
@@ -28,17 +26,47 @@ To build this device, I used a Force Sensitive Resistor and connected it to a we
 
 #### Hardware Wiring Diagram
 
-![Wiring Diagram](images/WiringDiagram.png)
-< Insert Picture and explanation of Your Wiring Diagram here >
+![Wiring Diagram](images/WiringFinal.png)
+
+** Note that I wasn't able to find a Fritzing diagram of the Sparkfun Photon Wearable Shield, so I used the regular Sparkfun Protoshield instead. The wiring for this is simple, a 10 KOhm resistor is wired to the Force Sensitive Resistor which is connected to a photon wearable shield (the Protoshield in the diagram). 
 
 #### Code
 
-< Explain your code.  You might include code snippets, either `inline` or
-```c++
-//Multiline
-bool photon_fun = TRUE;
+```int fsrPin = 0;     // the FSR and 10K pulldown are connected to a0
+int fsrReading;     // the analog reading from the FSR resistor divider
+ 
+void setup(void) {
+
+  Serial.begin(9600);   
+  Particle.variable("Force", fsrReading);
+  // Spark.variable("getForce", &fsrPin, INT);
+
+}
+ 
+void loop(void) {
+  fsrReading = analogRead(fsrPin);  
+ 
+  Serial.print("Analog reading = ");
+  Serial.print(fsrReading);     // the raw analog reading
+  
+fsrVoltage = map(fsrReading, 0, 1023, 0, 5000);
+  Serial.print("Voltage reading in mV = ");
+  Serial.println(fsrVoltage);  
+ 
+    // The voltage = Vcc * R / (R + FSR) where R = 10K and Vcc = 5V
+    // so FSR = ((Vcc - V) * R) / V       
+    fsrResistance = 5000 - fsrVoltage;     // fsrVoltage is in millivolts so 5V = 5000mV
+    fsrResistance *= 10000;                // 10K resistor
+    fsrResistance /= fsrVoltage;
+    Serial.print("FSR resistance in ohms = ");
+    Serial.println(fsrResistance)
+ 
+  delay(1000);
+} 
 ```
-You should link to your full code, either included in the repository (e.g. [my_code.ino](code/my_code.ino)  or to the Shared Revision in your Particle IDE. >
+As I have never taken a coding class before this one (besides in Matlab), my software skills were on the weaker side. Therefore, I went with a simple code to make sure that the functionality worked. Using IFTTT, I was able to communicate with the photon and monitor the force variable (using "fsrResistance" as seen in the code above). The code then takes the raw analog reading and converts it to voltage, and using voltage division converts the voltage reading to resistance. IFTTT tracks the "fsrResistance" variable and is triggered if the resistance value is equal to 500 (for the sake of the demo). In reality, it should trigger if the resistance is less than or equal to around 100 Ohms, as mentioned in the introduction. 
+
+ [my_code.ino](code/my_code.ino)  
 
 
 ### Design / Form
