@@ -38,7 +38,7 @@ int fsrReading;     // the analog reading from the FSR resistor divider
 void setup(void) {
 
   Serial.begin(9600);   
-  Particle.variable("Force", fsrReading);
+  Particle.variable("Force", fsrResistance);
   // Spark.variable("getForce", &fsrPin, INT);
 
 }
@@ -64,17 +64,25 @@ fsrVoltage = map(fsrReading, 0, 1023, 0, 5000);
   delay(1000);
 } 
 ```
-As I have never taken a coding class before this one (besides in Matlab), my software skills were on the weaker side. Therefore, I went with a simple code to make sure that the functionality worked. Using IFTTT, I was able to communicate with the photon and monitor the force variable (using "fsrResistance" as seen in the code above). The code then takes the raw analog reading and converts it to voltage, and using voltage division converts the voltage reading to resistance. IFTTT tracks the "fsrResistance" variable and is triggered if the resistance value is equal to 500 (for the sake of the demo). In reality, it should trigger if the resistance is less than or equal to around 100 Ohms, as mentioned in the introduction. 
+As I have never taken a coding class before this one (besides in Matlab), my software skills were on the weaker side. Therefore, I went with a simple code to make sure that the functionality worked. Using IFTTT, I was able to communicate with the photon and monitor the force variable (using "fsrResistance" as seen in the code above). The code takes the raw analog reading and converts it to voltage, and using voltage division converts the voltage reading to resistance. IFTTT tracks the "fsrResistance" variable and is triggered if the resistance value is equal to 500 (for the sake of the demo). In reality, it should trigger if the resistance is less than or equal to around 100 Ohms, as mentioned in the introduction. I was able to understand how a FSR works and what measurements it takes, and with the help of online tutorials and resources was able to understand how to convert the analog reading to resistance that can be monitored and that makes sense. 
 
- [my_code.ino](code/my_code.ino)  
+ Link to code: [my_code.ino](code/my_code.ino)  
 
 
 ### Design / Form
 
-< Explain the device's form, the aesthetic choices made and how they relate to the concept/function the device is intended to engage >
+For the design of this device, I was inspired by Wonder Woman and the values she stands for and projects. To me and to many others, she is seen as a symbol of feminism and as a strong, powerful woman. I came to this decision after thinking about the feeling that I wanted my product to create. Wonder Woman symbolizes the power of women, as she comes from a race of all women warriors, and fights along side great men warriors like Superman and all. I landed on the conclusion that I wanted women to feel empowered while using this device, and there was no better way of instilling a feeling of empowerment than wearing the symbol of the powerful female superhero. Every woman wearing the band will feel like she's joining an army of women and will feel the support of the army behind her as she goes out for her run. The armband is in the shape of Wonder Woman's famous symbol, designed in Fusion 360 and 3D Printed.
+
+For the rest of this device, I wanted it to be as compact as possible so I used the photon shield and a USB device. The entire device is interconnected through the inside and doesn't require any effort from the user to be put in or taken out. The idea is that the user would buy the device as a whole, with the armband and enclosure and would only have to remove the cap of the USB holder to charge the device. Other than that, the device will remain in the enclosure and will not be visible to the user.
 
 < include photos of your device >
 
 ### Evaluation / Reflection
 
 < What is your own evaluation of your project?   What did you learn through this project?  What would you do differently in the future? >
+
+I'm very happy with the direction I took this project in. Womens safety has been a big issue for me and I've been looking for ways that I can make an impact. It's incredible to me to see that even with not a lot of experience in the field of IoT, I can make a difference using the knowledge that I currently have. 
+
+I'm very passionate about the intersection of design and technology and would like to pursue a career in product design. To me, it was very interesting to design this project while considering all the needs of the user and understanding the user base that I was targeting. I focused more on the design and on how this product would deliver the best possible experience, both for the runner and the person on the receiving end of the emergency text message. Through this class, I've learnt what considerations are necessary when designing for IoT devices, and how design plays a critical role when creating products that aren't bounded by the screen. The idea is to create an immersive experience for the user, through funtionality and design. 
+
+In terms of the runner, it was important to create a product that would be inconspicuous but would also make the runner feel safe and empowered. I think I achieved that relatively well, with the armband and the idea of the wearable shield. I would ideally like to reduce the size of the battery to make it less clunky and potentially try and go from an armband to a bracelet, or a ring to add to the idea of making the product as invisible as possible. I learnt how important it is to apply the rules of digital product design to physical products, and how different edge cases must be considered when building physical products. In the case of the person receiving the text messages, I had to think about what information is necessary to be displayed. The message had to be direct and concise and allow for the receiver to take action quickly. The message currently being sent is simple, it has an SOS message and the runner's phone number. In the future, I would like to implement a GPS as well in order to have the receiver see where the runner is if additional help needs to be called. By implementing a GPS tracking unit in the wearable device, the burden of having to call for extra help will be taken off the runner and the receiver will be able to do so quickly with accurate information. 
