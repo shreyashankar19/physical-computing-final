@@ -76,6 +76,7 @@ For the design of this device, I was inspired by Wonder Woman and the values she
 For the rest of this device, I wanted it to be as compact as possible so I used the photon shield and a USB device. The entire device is interconnected through the inside and doesn't require any effort from the user to be put in or taken out. The idea is that the user would buy the device as a whole, with the armband and enclosure and would only have to remove the cap of the USB holder to charge the device. Other than that, the device will remain in the enclosure and will not be visible to the user.
 
 ![Wearable Device](images/IMG_2867.jpg)
+![Top View, USB pack featured](images/IMG_2869.jpg)
 
 < include photos of your device >
 
