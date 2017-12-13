@@ -77,12 +77,10 @@ For the rest of this device, I wanted it to be as compact as possible so I used 
 
 ![Wearable Device](images/IMG_2867.jpg)
 ![Top View, USB pack featured](images/IMG_2869.jpg)
-
-< include photos of your device >
+![Internal Hardware, Photon Wired](images/IMG_2870.jpg)
+![Armband Demo](images/IMG_2872.jpg)
 
 ### Evaluation / Reflection
-
-< What is your own evaluation of your project?   What did you learn through this project?  What would you do differently in the future? >
 
 I'm very happy with the direction I took this project in. Womens safety has been a big issue for me and I've been looking for ways that I can make an impact. It's incredible to me to see that even with not a lot of experience in the field of IoT, I can make a difference using the knowledge that I currently have. 
 
